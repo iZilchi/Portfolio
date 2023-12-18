@@ -1,0 +1,167 @@
+:root {
+    --font-family: 'Inter', sans-serif;
+    --primary-color: #DE3C4B;
+    --background-color: #1D1E2C;
+    --secondary-color: #2F3048;
+    --planet1-color: #FFED65;
+    --planet2-color: #DABFFF;
+    --planet3-color: #62c5b8;
+    --cursor-color: #D7F9FF;
+    --nav-gap: 15rem;
+    --nav-row-gap: 18em;
+    --nav-font-size: 2em;
+    --brand-font-size: 4em;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(var(--background-color), var(--secondary-color));
+    color: var(--primary-color);
+}
+
+
+section {
+    display: grid;
+    align-items: center;
+    place-items: center;
+    min-height: 100vh;
+    background: linear-gradient(var(--background-color), var(--secondary-color));
+}
+
+
+.nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    top: 15vh;
+    row-gap: var(--nav-row-gap);
+}
+
+a {
+    position: relative;
+    color: var(--primary-color);
+    display: flex;
+    gap: var(--nav-gap);
+    font-size: var(--nav-font-size);
+    padding: 10px;
+}
+
+a:hover::before,
+a:hover::after {
+    content: '';
+    position: absolute;
+    width: 0.5em;
+    height: 0.5em;
+    border-style: solid;
+}
+
+a:hover::before {
+    border-width: 4px 0 0 4px;
+    top: 0;
+    left: 0;
+}
+
+a:hover::after {
+    border-width: 0 4px 4px 0;
+    bottom: 0;
+    right: 0;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--nav-gap);
+}
+
+.brand {
+    display: flex;
+    justify-content: center;
+    font-size: var(--brand-font-size);
+}
+
+.cursor {
+    position: fixed;
+    z-index: -999;
+    background-color: var(--cursor-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 30px var(--cursor-color),
+                0 0 70px var(--cursor-color),
+                0 0 110px var(--cursor-color);
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.cursor::before {
+    content: '';
+    position: absolute;
+    background: var(--cursor-color);
+    width: 50px;
+    height: 50px;
+    opacity: 0.2;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.planet1 {
+    position: absolute;
+    z-index: -1;
+    background-color: var(--planet1-color);
+    width: 35em;
+    height: 35em;
+    border-radius: 50%;
+    top: 50%;
+    left: 10%;
+    box-shadow: 0 0 20px var(--planet1-color),
+                0 0 60px var(--planet1-color),
+                0 0 100px var(--planet1-color);
+    transform: translate(-50%, -50%);
+    
+}
+
+.planet2 {
+    position: absolute;
+    z-index: -2;
+    background-color: var(--planet2-color);
+    width: 20em;
+    height: 20em;
+    border-radius: 50%;
+    top: 20%;
+    left: 80%;
+    box-shadow: 0 0 20px var(--planet2-color),
+                0 0 60px var(--planet2-color),
+                0 0 100px var(--planet2-color);
+    transform: translate(-50%, -50%);
+}
+
+.planet3 {
+    position: absolute;
+    z-index: -3;
+    background-color: var(--planet3-color);
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    top: 70%;
+    left: 50%;
+    box-shadow: 0 0 20px var(--planet3-color),
+                0 0 60px var(--planet3-color),
+                0 0 100px var(--planet3-color);
+    transform: translate(-50%, -50%);
+}
