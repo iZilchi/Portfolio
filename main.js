@@ -10,6 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
         cursor.style.display = "block";
     });
 
+    document.querySelectorAll("section").forEach((section) => {
+        section.addEventListener("mouseenter", () => {
+            cursor.style.display = "block";
+        });
+
+        section.addEventListener("mouseleave", () => {
+            cursor.style.display = "none";
+        });
+    });
+
     document.addEventListener("mouseout", () => {
         cursor.style.display = "none";
     });

@@ -15,8 +15,6 @@
 
 * {
     box-sizing: border-box;
-    font-family: var(--font-family);
-    text-decoration: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -27,10 +25,56 @@ html {
 }
 
 body {
+    font-family: var(--font-family);
     background: linear-gradient(var(--background-color), var(--secondary-color));
     color: var(--primary-color);
+
 }
 
+ul {
+    list-style: none;
+}
+
+a {
+    position: relative;
+    display: flex;
+    color: var(--primary-color);
+    gap: var(--nav-gap);
+    font-size: var(--nav-font-size);
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    gap: var(--nav-row-gap);
+}
+
+.nav-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 60vh;
+}
+
+.brand {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--brand-font-size);
+    top: 10vh;
+}
 
 section {
     display: grid;
@@ -38,25 +82,6 @@ section {
     place-items: center;
     min-height: 100vh;
     background: linear-gradient(var(--background-color), var(--secondary-color));
-}
-
-
-.nav {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    top: 15vh;
-    row-gap: var(--nav-row-gap);
-}
-
-a {
-    position: relative;
-    color: var(--primary-color);
-    display: flex;
-    gap: var(--nav-gap);
-    font-size: var(--nav-font-size);
-    padding: 10px;
 }
 
 a:hover::before,
@@ -78,20 +103,6 @@ a:hover::after {
     border-width: 0 4px 4px 0;
     bottom: 0;
     right: 0;
-}
-
-.nav-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: var(--nav-gap);
-}
-
-.brand {
-    display: flex;
-    justify-content: center;
-    font-size: var(--brand-font-size);
 }
 
 .cursor {
