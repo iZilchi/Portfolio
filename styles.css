@@ -5,10 +5,13 @@
     --secondary-color: #2F3048;
     --planet1-color: #FFED65;
     --planet2-color: #DABFFF;
-    --planet3-color: #62c5b8;
+    --star1-color: #b7cecb;
+    --inset1-color: #a09330;
+    --inset2-color: #784ab8;
+    --inset3-color: #10554b;
     --cursor-color: #D7F9FF;
     --nav-gap: 15rem;
-    --nav-row-gap: 18em;
+    --nav-row-gap: 15em;
     --nav-font-size: 2em;
     --brand-font-size: 4em;
 }
@@ -26,9 +29,10 @@ html {
 
 body {
     font-family: var(--font-family);
-    background: linear-gradient(var(--background-color), var(--secondary-color));
     color: var(--primary-color);
-
+    background: linear-gradient(var(--background-color), var(--secondary-color));
+    height: 100vh;
+    width: 100vw;
 }
 
 ul {
@@ -41,16 +45,10 @@ a {
     color: var(--primary-color);
     gap: var(--nav-gap);
     font-size: var(--nav-font-size);
+    font-weight: bold;
     text-decoration: none;
     padding: 10px;
-}
-
-nav {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+    animation: slideInLeft 1s ease;
 }
 
 .nav-list {
@@ -59,21 +57,13 @@ nav {
     gap: var(--nav-row-gap);
 }
 
-.nav-menu {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 60vh;
-}
-
-.brand {
+.portfolio {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: var(--brand-font-size);
-    top: 10vh;
+    animation: slideInTop 1s ease;
 }
 
 section {
@@ -81,7 +71,17 @@ section {
     align-items: center;
     place-items: center;
     min-height: 100vh;
-    background: linear-gradient(var(--background-color), var(--secondary-color));
+}
+
+.star {
+    position: absolute;
+    background-color: var(--star1-color);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 0 10px var(--star1-color),
+                0 0 20px var(--star1-color),
+                0 0 30px var(--star1-color);
 }
 
 a:hover::before,
@@ -107,7 +107,7 @@ a:hover::after {
 
 .cursor {
     position: fixed;
-    z-index: -999;
+    z-index: 9999;
     background-color: var(--cursor-color);
     width: 50px;
     height: 50px;
@@ -133,46 +133,75 @@ a:hover::after {
 
 .planet1 {
     position: absolute;
-    z-index: -1;
     background-color: var(--planet1-color);
+    border-radius: 50%;
     width: 35em;
     height: 35em;
-    border-radius: 50%;
-    top: 50%;
-    left: 10%;
+    top: 5%;
+    left: -10%;
     box-shadow: 0 0 20px var(--planet1-color),
                 0 0 60px var(--planet1-color),
                 0 0 100px var(--planet1-color);
-    transform: translate(-50%, -50%);
-    
+    animation: slideInTop 1s ease;
 }
 
 .planet2 {
     position: absolute;
-    z-index: -2;
     background-color: var(--planet2-color);
+    border-radius: 50%;
     width: 20em;
     height: 20em;
-    border-radius: 50%;
-    top: 20%;
-    left: 80%;
+    top: -10%;
+    left: 70%;
     box-shadow: 0 0 20px var(--planet2-color),
                 0 0 60px var(--planet2-color),
                 0 0 100px var(--planet2-color);
-    transform: translate(-50%, -50%);
+    animation: slideInTop 1s ease;
 }
 
-.planet3 {
+.planet1::before {
+    content: '';
     position: absolute;
-    z-index: -3;
-    background-color: var(--planet3-color);
-    width: 3em;
-    height: 3em;
+    width: 35em;
+    height: 35em;
     border-radius: 50%;
-    top: 70%;
-    left: 50%;
-    box-shadow: 0 0 20px var(--planet3-color),
-                0 0 60px var(--planet3-color),
-                0 0 100px var(--planet3-color);
-    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 1px 1px var(--inset1-color),
+                inset -30px -10px 50px 10px var(--inset1-color),
+                inset -80px -10px 100px 10px var(--inset1-color);
 }
+
+.planet2::before {
+    content: '';
+    position: absolute;
+    width: 20em;
+    height: 20em;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px 1px var(--inset2-color),
+                inset 30px -40px 50px -10px var(--inset2-color),
+                inset 90px -40px 100px -10px var(--inset2-color);
+}
+
+@keyframes slideInTop {
+    from {
+        opacity: 0.3;
+        transform: translateY(-50%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0.3;
+        transform: translateX(-50%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
