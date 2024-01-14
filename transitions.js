@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('.section');
-    const navMenu = document.querySelector('.nav-menu');
+    const navMenu = document.querySelector('.nav');
 
     let currentSectionIndex = 0;
     let touchStartY;
@@ -49,12 +49,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 handleNavMenuIntersection(entry);
             } else {
                 recursiveApplyShowClass(entry.target, entry.isIntersecting);
+    
+                // Check if the entry target has the "brand" class
+                if (entry.target.classList.contains('brand')) {
+                    entry.target.classList.toggle('show', entry.isIntersecting);
+                }
+    
+                // Check if the entry target has the "socials" class
+                if (entry.target.classList.contains('socials')) {
+                    entry.target.classList.toggle('show', entry.isIntersecting);
+    
+                    // Apply "show" class to the children of the "socials" element
+                    const socialsChildren = Array.from(entry.target.children);
+                    socialsChildren.forEach((child) => {
+                        recursiveApplyShowClass(child, entry.isIntersecting);
+                    });
+                }
             }
         });
     }
 
     function handleNavMenuIntersection(entry) {
-        const children = entry.target.children;
+        const children = Array.from(entry.target.children);
         recursiveApplyShowClass(entry.target, entry.isIntersecting);
         for (const child of children) {
             recursiveApplyShowClass(child, entry.isIntersecting);
@@ -62,13 +78,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function recursiveApplyShowClass(element, shouldShow) {
-        const children = element.querySelectorAll('.hidden');
-        children.forEach((child) => {
+        const hiddenElements = element.querySelectorAll('.hidden');
+        hiddenElements.forEach((hiddenElement) => {
             if (shouldShow) {
-                child.classList.add('show');
+                hiddenElement.classList.add('show');
             } else {
-                child.classList.remove('show');
+                hiddenElement.classList.remove('show');
             }
+        });
+
+        const children = Array.from(element.children);
+        children.forEach((child) => {
             recursiveApplyShowClass(child, shouldShow);
         });
     }

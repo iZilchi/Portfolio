@@ -7,52 +7,76 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Pixelify+Sans&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/89caea4945.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0a0aa76ebe.js" crossorigin="anonymous"></script>
     <script src="stars.js"></script>
     <script src="shooting-stars.js"></script>
     <script src="transitions.js"></script>
     <title>Zilchi's Portfolio</title>
 </head>
 <body>
+    <header>
+        <nav class="nav hidden">
+            <ul class="nav-list hidden">
+                <li>
+                    <a href="#home" class="brand hidden">ZILCHI</a>
+                </li>
+                <li>
+                    <a href="#home" class="nav-items hidden">HOME</a>
+                </li>
+                <li>
+                    <a href="#about" class="nav-items hidden">ABOUT</a>
+                </li>
+                <li>
+                    <a href="#project" class="nav-items hidden">PROJECT</a>
+                </li>
+                <li>
+                    <a href="#contact" class="nav-items hidden">CONTACT</a>
+                </li>
+            </ul>
+        </nav>   
+    </header>
+    <div class="socials hidden">
+        <ul class="socials-list hidden">
+            <li>
+                <a href="#https://twitter.com/Zilchii" class="socials-items hidden"></a>
+            </li>
+            <li>
+                <a href="#https://www.facebook.com/iZilchi/" class="nav-items hidden"></a>
+            </li>
+            <li>
+                <a href="#https://www.instagram.com/izilchi/" class="nav-items hidden"></a>
+            </li>
+            <li>
+                <a href="#https://www.youtube.com/channel/UCH2WNcKVrcdj9bpx_38I6UQ" class="nav-items hidden"></a>
+            </li>
+        </ul>
+    </div>
     <div class="cursor"></div>
     <div class="stars-container"></div>
     <div class="shooting-container">
         <div class="shooting-stars"></div>
     </div>
-    <main>        
-        <div class="nav-menu hidden">
-            <ul class="nav-list hidden">
-                <li>
-                    <a href="#home" class="hidden">HOME</a>
-                </li>
-                <li>
-                    <a href="#about" class="hidden">ABOUT</a>
-                </li>
-                <li>
-                    <a href="#project" class="hidden">PROJECT</a>
-                </li>
-                <li>
-                    <a href="#contact" class="hidden">CONTACT</a>
-                </li>
-            </ul>
-        </div>   
-        <section class="menu section hidden" id="menu">
+    <main>
+        <section class="home section hidden" id="home">
             <div class="planet1 hidden"></div>
             <div class="planet2 hidden"></div>
-            <div class="portfolio hidden">
-                <h1 id="hidden">PORTFOLIO</h1>
-            </div>
-        </section>
-        <section class="home section hidden" id="home">
-        </section>
+            <div class="planet3 hidden"></div>
+            <h3 class="name hidden">ZILCHI</h3>
+            <h4 class="portfolio hidden">PORTFOLIO</h4>
+            <h5 class="status hidden">Freelancer /</h5>
+            <h5 class="student hidden">/ Computer Science Student</h5>
+        </section>  
         <section class="about section hidden" id="about">    
-            about
+            <h2>About Section</h2>
+            <p>This is the content of the About section.</p>
         </section>
         <section class="project section hidden" id="project">
-            project
+            <h2>Project Section</h2>
+            <p>This is the content of the Project section.</p>
         </section>
         <section class="contact section hidden" id="contact">
-            contact
+            <h2>Contact Section</h2>
+            <p>This is the content of the Contact section.</p>
         </section>
     </main>
 </body>
