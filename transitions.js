@@ -1,9 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('.section');
-    const navMenu = document.querySelector('.nav');
 
     let currentSectionIndex = 0;
     let touchStartY;
+
+    document.getElementById('menuToggle').addEventListener('click', function () {
+        this.classList.toggle('open');
+
+        const navItems = document.querySelectorAll('.nav-items');
+
+        navItems.forEach(item => {
+            item.classList.toggle('show');
+        });
+    });
+
+    document.getElementById('socialToggle').addEventListener('click', function () {
+        this.classList.toggle('open');
+
+        const socialItems = document.querySelectorAll('.social-items');
+
+        socialItems.forEach(item => {
+            item.classList.toggle('show');
+        });
+    });
 
     function scrollToNextSection() {
         if (currentSectionIndex < sections.length - 1) {
@@ -45,36 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function handleIntersection(entries) {
         entries.forEach((entry) => {
-            if (entry.target.classList.contains('nav-menu')) {
-                handleNavMenuIntersection(entry);
-            } else {
-                recursiveApplyShowClass(entry.target, entry.isIntersecting);
-    
-                // Check if the entry target has the "brand" class
-                if (entry.target.classList.contains('brand')) {
-                    entry.target.classList.toggle('show', entry.isIntersecting);
-                }
-    
-                // Check if the entry target has the "socials" class
-                if (entry.target.classList.contains('socials')) {
-                    entry.target.classList.toggle('show', entry.isIntersecting);
-    
-                    // Apply "show" class to the children of the "socials" element
-                    const socialsChildren = Array.from(entry.target.children);
-                    socialsChildren.forEach((child) => {
-                        recursiveApplyShowClass(child, entry.isIntersecting);
-                    });
-                }
-            }
+            recursiveApplyShowClass(entry.target, entry.isIntersecting);
         });
-    }
-
-    function handleNavMenuIntersection(entry) {
-        const children = Array.from(entry.target.children);
-        recursiveApplyShowClass(entry.target, entry.isIntersecting);
-        for (const child of children) {
-            recursiveApplyShowClass(child, entry.isIntersecting);
-        }
     }
 
     function recursiveApplyShowClass(element, shouldShow) {
@@ -87,6 +78,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
+        const menuBarElement = document.querySelector('.menu-bar');
+        menuBarElement.classList.add('show');
+
+        const socialsElement = document.querySelector('.socials');
+        socialsElement.classList.add('show');
+
+        const brandElement = document.querySelector('.brand');
+        brandElement.classList.add('show');
+
         const children = Array.from(element.children);
         children.forEach((child) => {
             recursiveApplyShowClass(child, shouldShow);
@@ -98,10 +98,6 @@ document.addEventListener('DOMContentLoaded', function () {
     sections.forEach((section) => {
         observer.observe(section);
     });
-
-    if (navMenu) {
-        observer.observe(navMenu);
-    }
 
     window.addEventListener('touchstart', handleTouchStart);
     window.addEventListener('touchmove', handleTouchMove, { passive: true });

@@ -8,8 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("mousemove", (e) => {
         const { clientX, clientY } = e;
 
+        const cursorSize = 20; // Adjust this value based on your cursor size
+        const cursorX = clientX - cursorSize / 2;
+        const cursorY = clientY - cursorSize / 2;
+
         cursor.style.transition = "transform 0.2s ease-out";
-        cursor.style.transform = `translate(${clientX - 10}px, ${clientY - 10}px)`;
+        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
     });
 
     document.addEventListener("mouseenter", () => {

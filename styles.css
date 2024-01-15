@@ -38,7 +38,7 @@ body {
     width: 100vw;
 }
 
-/* Header */
+/* Header & Socials*/
 ul {
     list-style: none;
 }
@@ -46,20 +46,20 @@ ul {
 .brand.hidden {
     position: absolute;
     display: flex;
-    top: 50%;
-    left: -40%;
+    top: 7vh;
+    left: -50vh;
     color: var(--primary-color);
     font: bold var(--nav-header-size)/1 sans-serif;
     text-decoration: none;
     padding: 10px;
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateX(-50%);
     transition: opacity 1s ease, transform 1s ease;
 }
 
 .brand.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 .nav.hidden {
@@ -67,7 +67,7 @@ ul {
     display: flex;
     z-index: 3;
     top: 3%;
-    left: 30%;
+    left: 28%;
     gap: var(--nav-row-gap);
     padding: 1em;
     opacity: 1;
@@ -89,13 +89,13 @@ ul {
     text-decoration: none;
     padding: 10px;
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateX(50%);
     transition: opacity 1s ease, transform 1s ease;
 }
 
 .nav-items.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 .nav-items:hover {
@@ -127,6 +127,87 @@ ul {
     right: 0;
 }
 
+.socials.hidden {
+    position: absolute;
+    display: flex;
+    cursor: pointer;
+    font-size: 2.5em;
+    z-index: 1;
+    top: 90%;
+    left: 93%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.socials.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.social-list.hidden {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    font-size: 2em;
+    top: 56%;
+    left: 89.6%;
+}
+
+.social-items.hidden {
+    position: absolute;
+    display: flex;
+    text-decoration: none;
+    padding: 10px;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.social-items.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-bar.hidden {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    top: 10%;
+    left: 93%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.menu-bar.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.bar.hidden {
+    width: 30px;
+    height: 5px;
+    background-color: var(--cursor-color);
+    margin: 4px 0;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+
+.menu-bar.open .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(0px, 6px);
+}
+
+.menu-bar.open .bar:nth-child(2) {
+    transform: translateX(-50%);
+}
+
+.menu-bar.open .bar:nth-child(3) {
+    transform: rotate(45deg) translate(0px, -6px);
+}
+
 /* Main */
 section {
     display: grid;
@@ -149,6 +230,7 @@ section {
                 0 0 110px var(--cursor-color);
     transform: translate(-50%, -50%);
     display: none;
+    opacity: 0.5
 }
 
 .cursor::before {
@@ -181,7 +263,7 @@ section {
     background-color: var(--planet1-color);
     width: 35em;
     height: 35em;
-    top: -10%;
+    top: 30%;
     left: -10%;
     box-shadow: 0 0 20px var(--planet1-color),
                 0 0 60px var(--planet1-color),
@@ -192,7 +274,7 @@ section {
     background-color: var(--planet2-color);
     width: 20em;
     height: 20em;
-    top: 45%;
+    top: 20%;
     left: 70%;
     box-shadow: 0 0 20px var(--planet2-color),
                 0 0 60px var(--planet2-color),
@@ -218,7 +300,7 @@ section {
     overflow: hidden;
     border-radius: 50%;
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(50%);
     transition: opacity 1s ease, transform 1.5s ease;
 }
 
@@ -263,7 +345,7 @@ section {
     top: 15%;
     left: 20%;
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-50%);
     transition: opacity 1s ease, transform 1s ease;
 }
 
@@ -277,7 +359,7 @@ section {
     top: 35%;
     left: 55%;
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(50%);
     transition: opacity 1s ease, transform 1s ease;
 }
 
@@ -292,7 +374,7 @@ section {
     top: 42%;
     left: 36%;
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-50%);
     transition: opacity 1s ease, transform 1s ease;
 }
 
@@ -307,7 +389,7 @@ section {
     top: 42%;
     left: 45%;
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(50%);
     transition: opacity 1s ease, transform 1s ease;
 }
 

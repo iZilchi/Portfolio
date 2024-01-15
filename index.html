@@ -11,15 +11,19 @@
     <script src="stars.js"></script>
     <script src="shooting-stars.js"></script>
     <script src="transitions.js"></script>
+    <script src="menu.js"></script>
     <title>Zilchi's Portfolio</title>
 </head>
 <body>
     <header>
+        <div class="menu-bar hidden" id="menuToggle">
+            <div class="bar hidden"></div>
+            <div class="bar hidden"></div>
+            <div class="bar hidden"></div>
+        </div>
         <nav class="nav hidden">
+            <a href="#home" class="brand hidden">ZILCHI</a>
             <ul class="nav-list hidden">
-                <li>
-                    <a href="#home" class="brand hidden">ZILCHI</a>
-                </li>
                 <li>
                     <a href="#home" class="nav-items hidden">HOME</a>
                 </li>
@@ -35,21 +39,34 @@
             </ul>
         </nav>   
     </header>
-    <div class="socials hidden">
-        <ul class="socials-list hidden">
-            <li>
-                <a href="#https://twitter.com/Zilchii" class="socials-items hidden"></a>
-            </li>
-            <li>
-                <a href="#https://www.facebook.com/iZilchi/" class="nav-items hidden"></a>
-            </li>
-            <li>
-                <a href="#https://www.instagram.com/izilchi/" class="nav-items hidden"></a>
-            </li>
-            <li>
-                <a href="#https://www.youtube.com/channel/UCH2WNcKVrcdj9bpx_38I6UQ" class="nav-items hidden"></a>
-            </li>
-        </ul>
+    <div>
+        <div class="socials hidden" id="socialToggle">
+            <i class="fa-solid fa-share-nodes" style="color: #D7F9FF;"></i>
+        </div>
+        <div>
+            <ul class="social-list hidden">
+                <li>
+                    <a href="https://twitter.com/Zilchii" class="social-items hidden">
+                        <i class="fa-brands fa-x-twitter" style="color: #D7F9FF;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/iZilchi/" class="social-items hidden">
+                        <i class="fa-brands fa-facebook-f" style="color: #D7F9FF;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/izilchi/" class="social-items hidden">
+                        <i class="fa-brands fa-instagram" style="color: #D7F9FF;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/channel/UCH2WNcKVrcdj9bpx_38I6UQ" class="social-items hidden">
+                        <i class="fa-brands fa-youtube" style="color: #D7F9FF;"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="cursor"></div>
     <div class="stars-container"></div>
@@ -67,16 +84,16 @@
             <h5 class="student hidden">/ Computer Science Student</h5>
         </section>  
         <section class="about section hidden" id="about">    
-            <h2>About Section</h2>
-            <p>This is the content of the About section.</p>
+            <h2 class="hidden">About Section</h2>
+            <p class="hidden">This is the content of the About section.</p>
         </section>
         <section class="project section hidden" id="project">
-            <h2>Project Section</h2>
-            <p>This is the content of the Project section.</p>
+            <h2 class="hidden">Project Section</h2>
+            <p class="hidden">This is the content of the Project section.</p>
         </section>
         <section class="contact section hidden" id="contact">
-            <h2>Contact Section</h2>
-            <p>This is the content of the Contact section.</p>
+            <h2 class="hidden">Contact Section</h2>
+            <p class="hidden">This is the content of the Contact section.</p>
         </section>
     </main>
 </body>
