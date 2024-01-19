@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const starsContainer = document.querySelector(".stars-container");
     const cursor = document.querySelector(".cursor");
-    const minStarSize = 2, maxStarSize = 6, minDistance = 50;
+    const minStarSize = 1, maxStarSize = 5, minDistance = 50;
 
     const getRandomSize = () => Math.floor(Math.random() * (maxStarSize - minStarSize + 1)) + minStarSize;
 
@@ -50,16 +50,36 @@ document.addEventListener("DOMContentLoaded", () => {
         star.size = getRandomSize();
         star.style.width = star.style.height = `${star.size}px`;
         star.style.position = "absolute";
-        star.style.backgroundColor = "var(--star1-color)";
+        
+        // Randomly select star color
+        const randomColorIndex = Math.floor(Math.random() * 3); // 0, 1, or 2
+        const randomColor = getStarColor(randomColorIndex);
+        
+        star.style.backgroundColor = randomColor;
         star.style.borderRadius = "50%";
-        star.style.boxShadow = `0 0 10px var(--star1-color), 0 0 20px var(--star1-color), 0 0 30px var(--star1-color)`;
+        star.style.boxShadow = `0 0 10px ${randomColor}, 0 0 20px ${randomColor}, 0 0 30px ${randomColor}`;
         setStarPosition(star, createdStars);
         starsContainer.appendChild(star);
-
+    
         star.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1500, iterations: 1, easing: "ease-in-out" });
-
+    
         return star;
     };
+    
+    const getStarColor = (index) => {
+        switch (index) {
+            case 0:
+                return "var(--star1-color)";
+            case 1:
+                return "var(--star2-color)";
+            case 2:
+                return "var(--star3-color)";
+            default:
+                return "var(--star1-color)";
+        }
+    };
+    
+    
 
     const removeStar = (star) => {
         if (star) star.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1500, iterations: 1, easing: "ease-in-out" }).onfinish = () => starsContainer.removeChild(star);

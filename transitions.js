@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentSectionIndex = 0;
     let touchStartY;
 
+
     document.getElementById('menuToggle').addEventListener('click', function () {
         this.classList.toggle('open');
 

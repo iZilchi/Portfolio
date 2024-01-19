@@ -1,22 +1,27 @@
 :root {
     --font-family: 'Inter', sans-serif;
-    --primary-color: #DE3C4B;
+    --primary-color: #5dbeff;
     --background-color: #1D1E2C;
     --secondary-color: #2F3048;
     --planet1-color: #FFED65;
-    --planet2-color: #DABFFF;
+    --planet2-color: #ff6d6d;
+    --planet3-color: #be3cbe;
     --star1-color: #b7cecb;
+    --star2-color: #ff6d6d;
+    --star3-color: #FFED65;
     --inset1-color: #a09330;
-    --inset2-color: #784ab8;
-    --inset3-color: #10554b;
+    --inset2-color: #cc4f4f;
+    --inset3-color: #772b77;
     --cursor-color: #D7F9FF;
     --nav-row-gap: 12em;
     --nav-header-size: 1.5em;
-    --normal-size: 0.5em;
+
     --h1-font-size: 7em;
     --h2-font-size: 5em;
-    --h3-font-size: 1.5em;
-    --p-font-size: 1em;
+    --h3-font-size: 2em;
+    --h4-font-size: 1.5em;
+    --btn-font-size: 1.5em;
+    --p-font-size: 1.2em;
 }
 
 body, html {
@@ -26,17 +31,89 @@ body, html {
     overflow: hidden;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: var(--font-family);
     color: var(--primary-color);
     background: linear-gradient(var(--background-color), var(--secondary-color));
     height: 100vh;
     width: 100vw;
+    scroll-snap-type: y mandatory;
 }
+
+/* Main */
+section {
+    display: grid;
+    align-items: center;
+    place-items: center;
+    min-height: 100vh;
+    scroll-snap-align: start;
+}
+
+.cursor {
+    position: fixed;
+    overflow: hidden;
+    z-index: -999;
+    background-color: var(--cursor-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 30px var(--cursor-color),
+                0 0 70px var(--cursor-color),
+                0 0 110px var(--cursor-color);
+    transform: translate(-50%, -50%);
+    display: none;
+    opacity: 0.5
+}
+
+.cursor::before {
+    content: '';
+    position: absolute;
+    background: var(--cursor-color);
+    width: 50px;
+    height: 50px;
+    opacity: 0.2;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.shooting-stars {
+    position: relative;
+}
+
+
+.shooting-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(40deg);
+}
+
+.scroll-btn.hidden {
+    position: absolute;
+    top: 85%;
+    left: 8%;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.scroll-btn.show {
+    opacity: 1;
+    transform: translateY(0);;
+}
+
+.down.hidden {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+    margin: -10px;
+}
+
+
 
 /* Header & Socials*/
 ul {
@@ -54,7 +131,7 @@ ul {
     padding: 10px;
     opacity: 0;
     transform: translateX(-50%);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: 0.4s ease;
 }
 
 .brand.show {
@@ -90,7 +167,7 @@ ul {
     padding: 10px;
     opacity: 0;
     transform: translateX(50%);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: 0.4s ease;
 }
 
 .nav-items.show {
@@ -131,13 +208,13 @@ ul {
     position: absolute;
     display: flex;
     cursor: pointer;
-    font-size: 2.5em;
+    font-size: 2em;
     z-index: 1;
     top: 90%;
     left: 93%;
     opacity: 0;
     transform: translateX(100%);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: 0.4s ease;
 }
 
 .socials.show {
@@ -148,11 +225,12 @@ ul {
 .social-list.hidden {
     position: absolute;
     display: flex;
+    z-index: 1;
     flex-direction: column;
-    gap: 1.5em;
-    font-size: 2em;
-    top: 56%;
-    left: 89.6%;
+    gap: 2em;
+    font-size: 1.5em;
+    top: 58%;
+    left: 89.9%;
 }
 
 .social-items.hidden {
@@ -161,8 +239,8 @@ ul {
     text-decoration: none;
     padding: 10px;
     opacity: 0;
-    transform: translateY(50%);
-    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(10%);
+    transition: 0.4s ease;
 }
 
 .social-items.show {
@@ -179,7 +257,7 @@ ul {
     left: 93%;
     opacity: 0;
     transform: translateX(100%);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: 0.4s ease;
 }
 
 .menu-bar.show {
@@ -193,7 +271,7 @@ ul {
     background-color: var(--cursor-color);
     margin: 4px 0;
     border-radius: 5px;
-    transition: 0.4s;
+    transition: 0.4s ease;
 }
 
 .menu-bar.open .bar:nth-child(1) {
@@ -208,130 +286,146 @@ ul {
     transform: rotate(45deg) translate(0px, -6px);
 }
 
-/* Main */
-section {
-    display: grid;
-    align-items: center;
-    place-items: center;
-    min-height: 100vh;
+.planet1.show{
+    opacity: 1;    
+    transform: translateY(0);
 }
 
-.cursor {
-    position: fixed;
-    overflow: hidden;
-    z-index: -999;
-    background-color: var(--cursor-color);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    pointer-events: none;
-    box-shadow: 0 0 30px var(--cursor-color),
-                0 0 70px var(--cursor-color),
-                0 0 110px var(--cursor-color);
-    transform: translate(-50%, -50%);
-    display: none;
-    opacity: 0.5
+.planet2.show{
+    opacity: 1;    
+    transform: translateX(0);
 }
 
-.cursor::before {
-    content: '';
-    position: absolute;
-    background: var(--cursor-color);
-    width: 50px;
-    height: 50px;
-    opacity: 0.2;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
+.planet3.show{
+    opacity: 1;    
+    transform: translateY(0);
 }
 
-.shooting-stars {
-    position: absolute;
-    background: linear-gradient(-45deg, #b7cecb, rgba(0, 0, 255, 0));
-    border-radius: 50%;
-    filter: drop-shadow(0 0 6px #b7cecb);
+.black-hole.show{
+    opacity: 1;    
+    transform: translateX(0);
 }
 
-.shooting-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform: rotate(40deg);
-}
-
-/* Home Section */
-.planet1.hidden {
+.planet1 {
     background-color: var(--planet1-color);
-    width: 35em;
-    height: 35em;
-    top: 30%;
-    left: -10%;
+    width: 45em;
+    height: 45em;
+    top: 60%;
+    left: 25%;
     box-shadow: 0 0 20px var(--planet1-color),
                 0 0 60px var(--planet1-color),
                 0 0 100px var(--planet1-color);
+    opacity: 0;    
+    transform: translateY(50%);
+    transition: 0.7s ease;
 }
 
-.planet2.hidden {
+.planet2 {
     background-color: var(--planet2-color);
-    width: 20em;
-    height: 20em;
+    width: 45em;
+    height: 45em;
     top: 20%;
-    left: 70%;
+    left: 60%;
     box-shadow: 0 0 20px var(--planet2-color),
                 0 0 60px var(--planet2-color),
                 0 0 100px var(--planet2-color);
-}
-
-.planet1.hidden {
-    position: absolute;
-    overflow: hidden;
-    border-radius: 50%;
     opacity: 0;
-    transform: translateY(-50%);
-    transition: opacity 1s ease, transform 1s ease;
+    transform: translateX(100%);
+    transition: 0.7s ease;
 }
 
-.planet1.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.planet2.hidden {
-    position: absolute;
-    overflow: hidden;
-    border-radius: 50%;
-    opacity: 0;
+.planet3 {
+    background-color: var(--planet3-color);
+    width: 5em;
+    height: 5em;
+    top: 60%;
+    left: 45%;
+    box-shadow: 0 0 20px var(--planet3-color),
+                0 0 60px var(--planet3-color),
+                0 0 100px var(--planet3-color);
+    opacity: 0;    
     transform: translateY(50%);
-    transition: opacity 1s ease, transform 1.5s ease;
+    transition: 0.7s ease;
 }
 
-.planet2.show {
-    opacity: 1;
-    transform: translateY(0);
+.black-hole {
+    background-color: #000000; /* Black color */
+    width: 1em;
+    height: 1em;
+    top: 48%;
+    left: 44.5%;
+    box-shadow: 0 0 20px #57206d,
+                0 0 60px #57206d,
+                0 0 100px #57206d;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 50%; 
+    opacity: 0;    
+    transform: translateY(50%);
+    transition: 0.7s ease;
 }
 
-.planet1.hidden::before,
-.planet2.hidden::before {
+.planet1 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.planet2 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.planet3 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.planet1::before,
+.planet2::before,
+.planet3::before,
+.black-hole::before {
     content: '';
     position: absolute;
     border-radius: 50%;
 }
 
-.planet1.hidden::before {
-    width: 35em;
-    height: 35em;
+.planet1::before {
+    width: 45em;
+    height: 45em;
     box-shadow: 1px 1px 1px 1px var(--inset1-color),
-                inset -30px -10px 50px 10px var(--inset1-color),
-                inset -80px -10px 100px 10px var(--inset1-color);
+                inset 30px 30px 30px 10px var(--inset1-color),
+                inset 100px 30px 100px 10px var(--inset1-color);
 }
 
-.planet2.hidden::before {
-    width: 20em;
-    height: 20em;
+.planet2::before {
+    width: 45em;
+    height: 45em;
     box-shadow: 1px 1px 1px 1px var(--inset2-color),
                 inset -30px -40px 50px 10px var(--inset2-color),
                 inset -90px -40px 100px 10px var(--inset2-color);
 }
 
+.planet3::before {
+    width: 5em;
+    height: 5em;
+    box-shadow: 1px 1px 1px 1px var(--inset3-color),
+                inset -30px -10px 50px 10px var(--inset3-color),
+                inset -80px -10px 100px 10px var(--inset3-color);
+}
+
+.black-hole::before {
+    width: 1em;
+    height: 1em;
+    box-shadow: 1px 1px 1px 1px #333333, /* A slightly lighter shade for inner shadow */
+                inset -30px -10px 50px 10px #000000,
+                inset -80px -10px 100px 10px #333333;
+}
+
+
+/* Home Section */
 .name.hidden,
 .portfolio.hidden,
 .status.hidden,
@@ -346,7 +440,7 @@ section {
     left: 20%;
     opacity: 0;
     transform: translateX(-50%);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: 0.5s ease;
 }
 
 .name.show {
@@ -360,7 +454,7 @@ section {
     left: 55%;
     opacity: 0;
     transform: translateX(50%);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: 0.5s ease;
 }
 
 .portfolio.show {
@@ -369,13 +463,13 @@ section {
 }
 
 .status.hidden {
-    font-size: var(--h3-font-size);
+    font-size: var(--h4-font-size);
     color: var(--cursor-color);
     top: 42%;
     left: 36%;
     opacity: 0;
     transform: translateX(-50%);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: 0.5s ease;
 }
 
 .status.show {
@@ -384,18 +478,102 @@ section {
 }
 
 .student.hidden {
-    font-size: var(--h3-font-size);
+    font-size: var(--h4-font-size);
     color: var(--cursor-color);
     top: 42%;
     left: 45%;
     opacity: 0;
     transform: translateX(50%);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: 0.5s ease;
 }
 
 .student.show {
     opacity: 1;
     transform: translateX(0);
+}
+
+/* About Section */
+.about-title.hidden {
+    position: absolute;
+    color: var(--cursor-color);
+    font-size: var(--h2-font-size);
+    top: 15%;
+    left: -14%;
+    opacity: 0;
+    transform: translateX(0);
+    transition: 0.8s;
+}
+
+.about-title.show {
+    opacity: 1;
+    transform: translateX(100%);
+}
+
+.intro-p.hidden {
+    position: absolute;
+    font-size: var(--p-font-size);
+    color: var(--cursor-color);
+    top: 40%;
+    left: -27.5%;
+    line-height: 2;
+    word-wrap: break-word;
+    white-space: normal;
+    opacity: 0;
+    transform: translateX(0);
+    transition: 1.3s;
+}
+
+.intro-p.show {
+    opacity: 1;
+    transform: translateX(100%);
+}
+
+.bold.hidden {
+    color: var(--primary-color);
+}
+
+.btn-container.hidden {
+    position: absolute;
+    top: 85%;
+    left: 25%;
+    opacity: 0;
+    transform: translateY(0);
+    transition: 0.5s;
+}
+
+.btn-container.show {
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+.btn-container.show:hover {
+    transform: translateY(calc(-100% - 6px)); /* Move up by 4 pixels on hover */
+}
+
+
+.btn.hidden {
+    text-decoration: none;
+    display: inline-block;
+    font-size: var(--btn-font-size);
+    line-height: 1;
+    font-weight: bold;
+    color: var(--cursor-color);
+    background: var(--primary-color);
+    border-radius: 50px;
+    padding: 15px 28px;
+}
+
+
+/* Project Section */
+.project-title.hidden {
+    position: relative;
+    font-size: var(--h2-font-size);
+}
+
+/* Contact Section */
+.contact-title.hidden {
+    position: relative;
+    font-size: var(--h2-font-size);
 }
 
 /* Keyframes */ 

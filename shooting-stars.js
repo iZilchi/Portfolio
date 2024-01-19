@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const shootingStarsContainer = document.querySelector(".shooting-container");
-    const minSize = 2, maxSize = 5, minDistance = 50;
+    const minSize = 1, maxSize = 5, minDistance = 50;
 
     const getRandomSize = () => Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize;
 
@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
             Math.sqrt((x - sX) ** 2 + (y - sY) ** 2) <= sSize / 2 + minDistance
         );
 
-    const setStarPosition = (star, otherShootingStars) => {
-        const maxX = window.innerWidth - star.size * 2;
-        const maxY = window.innerHeight - star.size * 2;
+    const setShootingStarPosition = (shootingStar, otherShootingStars) => {
+        const maxX = window.innerWidth - shootingStar.size * 2;
+        const maxY = window.innerHeight - shootingStar.size * 2;
 
         let randomX, randomY;
         do {
@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
             randomY = Math.floor(Math.random() * maxY);
         } while (isPointTooClose(randomX, randomY, otherShootingStars));
 
-        star.style.top = `${randomY}px`;
-        star.style.left = `${randomX}px`;
+        shootingStar.style.top = `${randomY}px`;
+        shootingStar.style.left = `${randomX}px`;
     };
 
     const createShootingStar = () => {
@@ -30,6 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
         shootingStar.style.height = shootingStar.style.width = `${shootingStar.size}px`;
         shootingStar.style.animation = "trail 3s ease-in-out infinite, fall 3s ease-in-out infinite";
 
+        const randomColorIndex = Math.floor(Math.random() * 3); // 0, 1, or 2
+        const randomColor = getShootingStarColor(randomColorIndex);
+
+        shootingStar.style.background = `linear-gradient(-45deg, ${randomColor}, rgba(0, 0, 255, 0))`;
+        shootingStar.style.borderRadius = "50%";
+        shootingStar.style.filter = `drop-shadow(0 0 6px ${randomColor})`;
+
         ['before', 'after'].forEach(pseudo => {
             const element = document.createElement("div");
             element.style.content = "''";
@@ -37,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             shootingStar.appendChild(element);
         });
 
-        setStarPosition(shootingStar, createdShootingStars);
+        setShootingStarPosition(shootingStar, createdShootingStars);
         shootingStarsContainer.appendChild(shootingStar);
 
         shootingStar.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1500, iterations: 1, easing: "ease-in-out" });
@@ -49,7 +56,20 @@ document.addEventListener("DOMContentLoaded", () => {
         if (shootingStar) shootingStar.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1500, iterations: 1, easing: "ease-in-out" }).onfinish = () => shootingStarsContainer.removeChild(shootingStar);
     };
 
-    const getRandomShootingStarsCount = () => Math.floor(Math.random() * (5 - 3 + 1)) + 3;
+    const getShootingStarColor = (index) => {
+        switch (index) {
+            case 0:
+                return "var(--star1-color)";
+            case 1:
+                return "var(--star2-color)";
+            case 2:
+                return "var(--star3-color)";
+            default:
+                return "var(--inset1-color)";
+        }
+    };
+
+    const getRandomShootingStarsCount = () => Math.floor(Math.random() * (3 - 2 + 1)) + 2;
 
     const createdShootingStars = [];
 
