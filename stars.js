@@ -1,29 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const starsContainer = document.querySelector(".stars-container");
-    const cursor = document.querySelector(".cursor");
     const minStarSize = 1, maxStarSize = 5, minDistance = 50;
 
     const getRandomSize = () => Math.floor(Math.random() * (maxStarSize - minStarSize + 1)) + minStarSize;
 
-    document.addEventListener("mousemove", (e) => {
-        const { clientX, clientY } = e;
-
-        const cursorSize = 20; // Adjust this value based on your cursor size
-        const cursorX = clientX - cursorSize / 2;
-        const cursorY = clientY - cursorSize / 2;
-
-        cursor.style.transition = "transform 0.2s ease-out";
-        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
-    });
-
-    document.addEventListener("mouseenter", () => {
-        cursor.style.display = "block";
-    });
-
-    document.addEventListener("mouseleave", () => {
-        cursor.style.transition = "none";
-        cursor.style.display = "none";
-    });
 
     const isPointTooClose = (x, y, otherStars) =>
         otherStars.some(({ x: starX, y: starY, size: starSize }) =>

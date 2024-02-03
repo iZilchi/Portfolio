@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://kit.fontawesome.com/0a0aa76ebe.js" crossorigin="anonymous"></script>
     <script src="stars.js"></script>
     <script src="shooting-stars.js"></script>
@@ -73,12 +74,27 @@
     <div class="shooting-container">
         <div class="shooting-stars"></div>
     </div>
+    <div class="scroll-btn">
+        <span class="down"></span>
+        <span class="down"></span>
+    </div>
+    <ul class="navigation">
+        <li class="list" data-target="home">
+            <a href="#home"><span>.</span></a>
+        </li>
+        <li class="list" data-target="about">
+            <a href="#about"><span>.</span></a>
+        </li>
+        <li class="list" data-target="project">
+            <a href="#project"><span>.</span></a>
+        </li>
+        <li class="list" data-target="contact">
+            <a href="#contact"><span>.</span></a>
+        </li>
+    </ul>
+    
     <main>
         <section class="home section hidden" id="home">
-            <div class="scroll-btn hidden">
-                <span class="down hidden"></span>
-                <span class="down hidden"></span>
-            </div>
             <div class="planet1 hidden"></div>
             <h3 class="name hidden">ZILCHI</h3>
             <h4 class="portfolio hidden">PORTFOLIO</h4>
@@ -86,10 +102,6 @@
             <h5 class="student hidden">/ Computer Science Student</h5>
         </section>  
         <section class="about section hidden" id="about">  
-            <div class="scroll-btn hidden">
-                <span class="down hidden"></span>
-                <span class="down hidden"></span>
-            </div>
             <div class="planet2 hidden"></div>
             <h3 class="about-title hidden">ABOUT ME</h3>
             <p class="intro-p hidden">
@@ -105,22 +117,71 @@
             </div>
         </section>
         <section class="project section hidden" id="project">
-            <div class="scroll-btn hidden">
-                <span class="down hidden"></span>
-                <span class="down hidden"></span>
-            </div>
             <div class="planet3 hidden"></div>
-            <h3 class="project-title hidden">PROJECTS</h3>
-            <h5 class="project-subtitle hidden">Bringing Your Designs To Life</h5>
+            <h3 class="project-title hidden">PROJECT</h3>
+            <div class="wrapper hidden">
+                <i class="fa-solid fa-angle-left" id="left"></i>
+                <ul class="carousel hidden">
+                    <li class="card">
+                        <a class="img" href="#home" draggable="false">
+                            <img src="card1.jpg" alt="proj1" draggable="false">
+                        </a>
+                        <h2>Project 1</h2>
+                        <span>Description 1</span>
+                    </li>
+                    <li class="card">
+                        <a class="img" href="#about" draggable="false">
+                            <img src="card2.jpg" alt="proj1" draggable="false">
+                        </a>
+                        <h2>Project 2</h2>
+                        <span>Description 2</span>
+                    </li>
+                    <li class="card">
+                        <a class="img" href="#project" draggable="false">
+                            <img src="card3.jpg" alt="proj1" draggable="false">
+                        </a>
+                        <h2>Project 3</h2>
+                        <span>Description 3</span>
+                    </li>
+                    <li class="card">
+                        <a class="img" href="#contact" draggable="false">
+                            <img src="card4.jpg" alt="proj1" draggable="false">
+                        </a>
+                        <h2>Project 4</h2>
+                        <span>Description 4</span>
+                    </li>
+                </ul>
+                <i class="fa-solid fa-angle-right" id="right"></i>
+            </div>
         </section>
         <section class="contact section hidden" id="contact">
-            <div class="scroll-btn hidden">
-                <span class="down hidden"></span>
-                <span class="down hidden"></span>
-            </div>
             <div class="black-hole hidden"></div>
-            <h3 class="contact-title hidden">CONTACT</h3>
-            <h5 class="contact-subtitle hidden">Bringing Your Designs To Life</h5>
+            <h3 class="contact-title hidden">GET IN TOUCH</h3>
+            <div class="contact-container hidden">
+                <a href="mailto:ytzilchi@gmail.com">ytzilchi@gmail.com</a>
+                <ul class="contact-list hidden">
+                    <li>
+                        <a href="https://twitter.com/Zilchii" class="contact-items hidden">
+                            <i class="fa-brands fa-x-twitter" style="color: #D7F9FF;"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/iZilchi/" class="contact-items hidden">
+                            <i class="fa-brands fa-facebook-f" style="color: #D7F9FF;"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/izilchi/" class="contact-items hidden">
+                            <i class="fa-brands fa-instagram" style="color: #D7F9FF;"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCH2WNcKVrcdj9bpx_38I6UQ" class="contact-items hidden">
+                            <i class="fa-brands fa-youtube" style="color: #D7F9FF;"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </section>
     </main>
 </body>
