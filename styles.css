@@ -64,14 +64,13 @@ section {
     position: absolute;
     top: 80%;
     left: 8%;
-    opacity: 1;
+    z-index: 10;
 }
 
 .down {
     display: block;
     width: 30px;
     height: 30px;
-    z-index: 10;
     border-bottom: 2px solid #fff;
     border-right: 2px solid #fff;
     transform: rotate(45deg);
@@ -155,10 +154,12 @@ ul {
     position: absolute;
     display: flex;
     z-index: 5;
-    top: 3%;
+    min-width: 100vw;
+    top: 3vh;
     left: 28%;
     gap: var(--nav-row-gap);
     padding: 1em;
+    margin: 2em;
     opacity: 1;
 }
 
@@ -221,7 +222,7 @@ ul {
     display: flex;
     cursor: pointer;
     font-size: 2em;
-    z-index: 5;
+    z-index: 3;
     top: 90%;
     left: 93%;
     opacity: 0;
@@ -271,7 +272,7 @@ ul {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    z-index: 4;
+    z-index: 5;
     top: 10%;
     left: 93%;
     opacity: 0;
@@ -821,8 +822,814 @@ ul {
     }
 }
 
-/* Responsiveness */
+@media screen and (max-width: 1536px) {
+    .scroll-btn {
+        top: 80%;
+        left: 6%;
+    }
 
+    .down {
+        width: 30px;
+        height: 30px;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+    }
+
+    .brand.hidden {
+        top: 15%;
+        left: -23%;
+    }
+
+    .socials.hidden {
+        font-size: 2em;
+        top: 83%;
+        left: 92%;
+    }
+
+    .social-list.hidden {
+        gap: 2em;
+        font-size: 1.5em;
+        top: 48%;
+        left: 88.5%;
+    }
+
+    .planet1 {
+        width: 50em;
+        height: 50em;
+        top: 60%;
+        left: 24%;
+    }
+
+    .planet2 {
+        width: 45em;
+        height: 45em;
+        top: 20%;
+        left: 60%;
+    }
+
+    .planet3 {
+        width: 30em;
+        height: 30em;
+        top: 45%;
+        left: -10%;
+    }
+
+    .black-hole {
+        width: 60em;
+        height: 60em;
+        top: -90%;
+        left: 20%;
+    }
+
+    .planet1::before {
+        width: 50em;
+        height: 50em;
+    }
+
+    .planet2::before {
+        width: 45em;
+        height: 45em;
+    }
+
+    .planet3::before {
+        width: 30em;
+        height: 30em;
+    }
+
+    .black-hole::before {
+        width: 60em;
+        height: 60em;
+    }
+
+    .menu-bar.hidden {
+        top: 8.5%;
+        left: 92%;
+    }
+    
+    .bar.hidden {
+        width: 30px;
+        height: 5px;
+    }
+
+    .nav.hidden {
+        top: 2%;
+    }
+
+    .nav-list.hidden {
+        top: -80%;
+        left: 0%;
+        font-size: 1em;
+        gap: 10em;
+    }
+            
+    .name.hidden {
+        top: 10%;
+        left: 25%;
+    }
+
+    .portfolio.hidden {
+        top: 30%;
+        left: 50%;
+    }
+
+    .status.hidden {
+        font-size: 1.5em;
+        top: 38%;
+        left: 36%;
+    }
+
+    .student.hidden {
+        font-size: 1.5em;
+        top: 38%;
+        left: 45%;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .scroll-btn {
+        top: 80%;
+        left: 8%;
+    }
+
+    .down {
+        width: 30px;
+        height: 30px;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+    }
+
+    .brand.hidden {
+        top: 15%;
+        left: -23%;
+    }
+
+    .socials.hidden {
+        font-size: 2em;
+        top: 83%;
+        left: 92%;
+    }
+
+    .social-list.hidden {
+        gap: 2em;
+        font-size: 1.5em;
+        top: 48%;
+        left: 88%;
+    }
+
+    .planet1 {
+        width: 45em;
+        height: 45em;
+        top: 60%;
+        left: 22%;
+    }
+
+    .planet2 {
+        width: 45em;
+        height: 45em;
+        top: 20%;
+        left: 60%;
+    }
+
+    .planet3 {
+        width: 30em;
+        height: 30em;
+        top: 45%;
+        left: -10%;
+    }
+
+    .black-hole {
+        width: 60em;
+        height: 60em;
+        top: -90%;
+        left: 20%;
+    }
+
+    .planet1::before {
+        width: 45em;
+        height: 45em;
+    }
+
+    .planet2::before {
+        width: 45em;
+        height: 45em;
+    }
+
+    .planet3::before {
+        width: 30em;
+        height: 30em;
+    }
+
+    .black-hole::before {
+        width: 60em;
+        height: 60em;
+    }
+
+    .menu-bar.hidden {
+        top: 8.5%;
+        left: 92%;
+    }
+    
+    .bar.hidden {
+        width: 30px;
+        height: 5px;
+    }
+
+    .nav.hidden {
+        top: 2%;
+    }
+
+    .nav-list.hidden {
+        top: -80%;
+        left: 0%;
+        font-size: 1em;
+        gap: 10em;
+    }
+            
+    .name.hidden {
+        top: 10%;
+        left: 15%;
+    }
+
+    .portfolio.hidden {
+        top: 30%;
+        left: 45%;
+    }
+
+    .status.hidden {
+        font-size: 1.5em;
+        top: 38%;
+        left: 29%;
+    }
+
+    .student.hidden {
+        font-size: 1.5em;
+        top: 38%;
+        left: 40%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .scroll-btn {
+        left: 10%;
+    }
+
+    .down {
+        width: 30px;
+        height: 30px;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+    }
+
+    .brand.hidden {
+        top: 15%;
+        left: -27%;
+    }
+
+    .socials.hidden {
+        font-size: 2em;
+        top: 83%;
+        left: 92%;
+    }
+
+    .social-list.hidden {
+        gap: 2em;
+        font-size: 1.5em;
+        top: 48%;
+        left: 87%;
+    }
+
+    .planet1 {
+        width: 45em;
+        height: 45em;
+        top: 60%;
+        left: 15%;
+    }
+
+    .planet2 {
+        width: 45em;
+        height: 45em;
+        top: 20%;
+        left: 60%;
+    }
+
+    .planet3 {
+        width: 30em;
+        height: 30em;
+        top: 45%;
+        left: -10%;
+    }
+
+    .black-hole {
+        width: 60em;
+        height: 60em;
+        top: -90%;
+        left: 20%;
+    }
+
+    .planet1::before {
+        width: 45em;
+        height: 45em;
+    }
+
+    .planet2::before {
+        width: 45em;
+        height: 45em;
+    }
+
+    .planet3::before {
+        width: 30em;
+        height: 30em;
+    }
+
+    .black-hole::before {
+        width: 60em;
+        height: 60em;
+    }
+
+    .menu-bar.hidden {
+        top: 8.5%;
+        left: 92%;
+    }
+    
+    .bar.hidden {
+        width: 30px;
+        height: 5px;
+    }
+
+    .nav.hidden {
+        top: 2%;
+    }
+
+    .nav-list.hidden {
+        top: -80%;
+        left: -7%;
+        font-size: 1em;
+        gap: 10em;
+    }
+            
+    .name.hidden {
+        font-size: 7em;
+        top: 10%;
+        left: 15%;
+    }
+
+    .portfolio.hidden {
+        font-size: 5em;
+        top: 30%;
+        left: 38%;
+    }
+
+    .status.hidden {
+        font-size: 1.2em;
+        top: 40%;
+        left: 29%;
+    }
+
+    .student.hidden {
+        font-size: 1.2em;
+        top: 40%;
+        left: 40%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .scroll-btn {
+        left: 10%;
+    }
+
+    .down {
+        width: 30px;
+        height: 30px;
+    }
+
+    .brand.hidden {
+        top: 5%;
+        left: -27%;
+        font-size: 1.3em;
+    }
+
+    .socials.hidden {
+        font-size: 2em;
+        top: 83%;
+        left: 88%;
+    }
+
+    .social-list.hidden {
+        gap: 2em;
+        font-size: 1.5em;
+        top: 49%;
+        left: 81.5%;
+    }
+
+    .planet1 {
+        width: 40em;
+        height: 40em;
+        top: 60%;
+        left: 8%;
+    }
+
+    .planet2 {
+        width: 45em;
+        height: 45em;
+        top: 20%;
+        left: 60%;
+    }
+
+    .planet3 {
+        width: 30em;
+        height: 30em;
+        top: 45%;
+        left: -10%;
+    }
+
+    .black-hole {
+        width: 60em;
+        height: 60em;
+        top: -90%;
+        left: 20%;
+    }
+
+    .planet1::before {
+        width: 40em;
+        height: 40em;
+    }
+
+    .planet2::before {
+        width: 45em;
+        height: 45em;
+    }
+
+    .planet3::before {
+        width: 30em;
+        height: 30em;
+    }
+
+    .black-hole::before {
+        width: 60em;
+        height: 60em;
+    }
+
+    .menu-bar.hidden {
+        top: 8.5%;
+        left: 90%;
+    }
+    
+    .bar.hidden {
+        width: 30px;
+        height: 5px;
+    }
+
+    .nav.hidden {
+        top: 3%;
+    }
+
+    .nav-list.hidden {
+        top: -70%;
+        left: -15%;
+        font-size: 0.8em;
+        gap: 10em;
+    }
+            
+    .name.hidden {
+        font-size: 6em;
+        top: 15%;
+        left: 10%;
+    }
+
+    .portfolio.hidden {
+        font-size: 4.5em;
+        top: 33%;
+        left: 28%;
+    }
+
+    .status.hidden {
+        font-size: 1em;
+        top: 42%;
+        left: 25%;
+    }
+
+    .student.hidden {
+        font-size: 1em;
+        top: 42%;
+        left: 37%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .down {
+        width: 30px;
+        height: 30px;
+    }
+
+    .brand.hidden {
+        top: 5%;
+        left: -22%;
+        font-size: 1.5em;
+    }
+
+    .socials.hidden {
+        font-size: 2em;
+        top: 83%;
+        left: 88%;
+    }
+
+    .social-list.hidden {
+        gap: 2em;
+        font-size: 1.5em;
+        top: 50%;
+        left: 80%;
+    }
+
+    .planet1 {
+        width: 40em;
+        height: 40em;
+        top: 60%;
+        left: 0;
+    }
+
+    .planet2 {
+        width: 45em;
+        height: 45em;
+        top: 20%;
+        left: 60%;
+    }
+
+    .planet3 {
+        width: 30em;
+        height: 30em;
+        top: 45%;
+        left: -10%;
+    }
+
+    .black-hole {
+        width: 60em;
+        height: 60em;
+        top: -90%;
+        left: 20%;
+    }
+
+    .planet1::before {
+        width: 40em;
+        height: 40em;
+    }
+
+    .planet2::before {
+        width: 45em;
+        height: 45em;
+    }
+
+    .planet3::before {
+        width: 30em;
+        height: 30em;
+    }
+
+    .black-hole::before {
+        width: 60em;
+        height: 60em;
+    }
+
+    .menu-bar.hidden {
+       opacity: 0;
+    }
+
+    .nav-list.hidden {
+        opacity: 0;
+     }
+            
+    .name.hidden {
+        font-size: 5.5em;
+        top: 12%;
+        left: 10%;
+    }
+
+    .portfolio.hidden {
+        font-size: 4em;
+        top: 30%;
+        left: 28%;
+    }
+
+    .status.hidden {
+        font-size: 1em;
+        top: 36.5%;
+        left: 25%;
+    }
+
+    .student.hidden {
+        font-size: 1em;
+        top: 36.5%;
+        left: 40%;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .scroll-btn {
+        top: 80%;
+        left: 15%;
+    }
+
+    .down {
+        width: 25px;
+        height: 25px;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+    }
+
+    .brand.hidden {
+        top: -5%;
+        left: -25%;
+        font-size: 1.5em;
+    }
+
+    .socials.hidden {
+        font-size: 2em;
+        top: 83%;
+        left: 88%;
+    }
+
+    .social-list.hidden {
+        gap: 2em;
+        font-size: 1.5em;
+        top: 49%;
+        left: 78%;
+    }
+
+    .menu-bar.hidden {
+        opacity: 0;
+    }
+
+    .nav-list.hidden {
+        opacity:0;
+    }
+
+    .planet1 {
+        width: 35em;
+        height: 35em;
+        top: 55%;
+        left: -10%;
+    }
+
+    .planet2 {
+        width: 45em;
+        height: 45em;
+        top: 20%;
+        left: 60%;
+    }
+
+    .planet3 {
+        width: 30em;
+        height: 30em;
+        top: 45%;
+        left: -10%;
+    }
+
+    .black-hole {
+        width: 60em;
+        height: 60em;
+        top: -90%;
+        left: 20%;
+    }
+
+    .planet1::before {
+        width: 35em;
+        height: 35em;
+    }
+
+    .planet2::before {
+        width: 45em;
+        height: 45em;
+    }
+
+    .planet3::before {
+        width: 30em;
+        height: 30em;
+    }
+
+    .black-hole::before {
+        width: 60em;
+        height: 60em;
+    }
+        
+    .name.hidden {
+        font-size: 5em;
+        top: 13%;
+        left: 10%;
+    }
+
+    .portfolio.hidden {
+        font-size: 3em;
+        top: 33%;
+        left: 33%;
+    }
+
+    .status.hidden {
+        font-size: 1em;
+        top: 35%;
+        left: 20%;
+    }
+
+    .student.hidden {
+        font-size: 1em;
+        top: 35%;
+        left: 40%;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .brand.hidden {
+        left: -25%;
+        top: 5%;
+    }
+
+    .socials.hidden {
+        left: 85%;
+        font-size: 1.5em;
+    }
+
+    .social-list.hidden {
+        top: 53%;
+        left: 69%;
+        font-size: 1.3em;
+    }
+
+    .menu-bar.hidden {
+        opacity: 0;
+    }
+
+    .planet1 {
+        width: 35em;
+        height: 35em;
+        top: 55%;
+        left: -30%;
+    }
+
+    .planet2 {
+        width: 45em;
+        height: 45em;
+        top: 20%;
+        left: 60%;
+    }
+
+    .planet3 {
+        width: 30em;
+        height: 30em;
+        top: 45%;
+        left: -10%;
+    }
+
+    .black-hole {
+        width: 60em;
+        height: 60em;
+        top: -90%;
+        left: 20%;
+    }
+
+    .planet1::before {
+        width: 35em;
+        height: 35em;
+    }
+
+    .planet2::before {
+        width: 45em;
+        height: 45em;
+    }
+
+    .planet3::before {
+        width: 30em;
+        height: 30em;
+    }
+
+    .black-hole::before {
+        width: 60em;
+        height: 60em;
+    }
+        
+    .name.hidden {
+        font-size: 3.5em;
+        top: 18%;
+        left: 10%;
+    }
+
+    .portfolio.hidden {
+        font-size: 2.5em;
+        top: 36%;
+        left: 23%;
+    }
+
+    .status.hidden {
+        font-size: 1em;
+        top: 32%;
+        left: 10%;
+    }
+
+    .student.hidden {
+        font-size: 1em;
+        top: 36%;
+        left: 25%;
+    }
+}
+
+
+/* Responsiveness */
 
 /* Home Responsiveness */
 
@@ -831,17 +1638,14 @@ ul {
 
 
 /* Project Responsiveness */
-@media screen and (max-width: 900px) {
-    .wrapper .carousel {
-        grid-auto-columns: calc((100% / 2) - 9px);
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .contact-title.hidden {
+        font-size: var(--h3-font-size); /* Adjusted for large screens */
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
     .wrapper .carousel {
         grid-auto-columns: 100%;
     }
 }
-
-/* Contact Responsiveness */
-
