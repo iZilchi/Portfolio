@@ -6,6 +6,45 @@ document.addEventListener('DOMContentLoaded', function () {
     const firstCardWidth = document.querySelector('.card').offsetWidth;
     const carouselChildren = [...carousel.children];
 
+    const text = document.querySelector(".text2");
+    const text4 = document.querySelector(".text4");
+
+    const textLoad = () => {
+        setTimeout (() => {
+            text.textContent = "Front-End Dev";
+        }, 0);
+        setTimeout (() => {
+            text.textContent = "Web Designer";
+        }, 4000);
+        setTimeout (() => {
+            text.textContent = "Freelancer";
+        }, 8000);
+        setTimeout (() => {
+            text.textContent = "Student";
+        }, 12000);
+    }
+
+    const textLoad4 = () => {
+        setTimeout (() => {
+            text4.textContent = "blending designs together";
+        }, 0);
+        setTimeout (() => {
+            text4.textContent = "bringing ideas to life";
+        }, 4000);
+        setTimeout (() => {
+            text4.textContent = "exploring new things";
+        }, 8000);
+        setTimeout (() => {
+            text4.textContent = "creating art";
+        }, 12000);
+    }
+
+    textLoad();
+    setInterval (textLoad, 16000);
+
+    textLoad4();
+    setInterval (textLoad4, 16000);
+
     let currentSectionIndex = 0;
     let touchStartY;
 
