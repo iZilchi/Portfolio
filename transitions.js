@@ -148,19 +148,20 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleIntersection(entries) {
         entries.forEach((entry) => {
             recursiveApplyShowClass(entry.target, entry.isIntersecting);
-    
-            // Get the corresponding navigation list item using the data-target attribute
+        
             const target = entry.target.id;
             const navigationListItem = document.querySelector('.navigation .list[data-target="' + target + '"]');
-    
-            // Add or remove the .active class based on intersection
+            
+            document.querySelectorAll('.navigation .list').forEach(item => {
+                item.classList.remove('active');
+            });
+        
             if (entry.isIntersecting) {
                 navigationListItem.classList.add('active');
-            } else {
-                navigationListItem.classList.remove('active');
             }
         });
     }
+    
 
     function recursiveApplyShowClass(element, shouldShow) {
         const hiddenElements = element.querySelectorAll('.hidden');

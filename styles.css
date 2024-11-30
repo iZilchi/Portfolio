@@ -39,7 +39,6 @@ body {
     scroll-snap-type: y mandatory;
 }
 
-/* Main */
 section {
     display: grid;
     align-items: center;
@@ -62,8 +61,8 @@ section {
 
 .scroll-btn {
     position: absolute;
-    top: 80%;
-    left: 8%;
+    top: 90%;
+    left: 3%;
     z-index: 10;
     animation: down 2s infinite ease;
 }
@@ -117,18 +116,14 @@ a span {
 
 a.hidden {
     opacity: 0;
-    pointer-events: none; /* Disables click events when the link is hidden */
-    /* other styles... */
+    pointer-events: none;
 }
 
 a.show {
     opacity: 1;
-    pointer-events: auto; /* Enables click events when the link is shown */
-    /* other styles... */
+    pointer-events: auto;
 }
 
-
-/* Header & Socials*/
 ul {
     list-style: none;
 }
@@ -136,8 +131,8 @@ ul {
 .brand.hidden {
     position: absolute;
     display: flex;
-    top: 7vh;
-    left: -50vh;
+    top: 5vh;
+    left: -60vh;
     color: var(--primary-color);
     font: bold var(--nav-header-size)/1 sans-serif;
     text-decoration: none;
@@ -162,7 +157,7 @@ ul {
     display: flex;
     z-index: 5;
     min-width: 100vw;
-    top: 3vh;
+    bottom: 94.5vh;
     left: 28%;
     gap: var(--nav-row-gap);
     padding: 1em;
@@ -228,10 +223,12 @@ ul {
     position: absolute;
     display: flex;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
     font-size: 2em;
     z-index: 8;
     top: 90%;
-    left: 93%;
+    left: 95.5%;
     opacity: 0;
     transform: translateX(100%);
     transition: 0.4s ease;
@@ -250,7 +247,7 @@ ul {
     gap: 2.5em;
     font-size: 1.5em;
     top: 50%;
-    left: 89.9%;
+    left: 93.2%;
 }
 
 .social-items.hidden {
@@ -280,8 +277,8 @@ ul {
     flex-direction: column;
     cursor: pointer;
     z-index: 5;
-    top: 10%;
-    left: 93%;
+    top: 4%;
+    left: 96%;
     opacity: 0;
     transform: translateX(100%);
     transition: 0.4s ease;
@@ -340,8 +337,8 @@ ul {
 
 .planet1 {
     background-color: var(--planet1-color);
-    width: 45em;
-    height: 45em;
+    width: 55rem;
+    height: 55rem;
     top: 60%;
     left: 25%;
     box-shadow: 0 0 20px var(--planet1-color),
@@ -354,8 +351,8 @@ ul {
 
 .planet2 {
     background-color: var(--planet2-color);
-    width: 45em;
-    height: 45em;
+    width: 55rem;
+    height: 55rem;
     top: 20%;
     left: 60%;
     z-index: 5;
@@ -369,8 +366,8 @@ ul {
 
 .planet3 {
     background-color: var(--planet3-color);
-    width: 35em;
-    height: 35em;
+    width: 45rem;
+    height: 45rem;
     top: 45%;
     left: -10%;
     z-index: 1;
@@ -384,9 +381,9 @@ ul {
 
 .black-hole {
     background-color: #000000; /* Black color */
-    width: 60em;
-    height: 60em;
-    top: -90%;
+    width: 70rem;
+    height: 70rem;
+    bottom: 60%;
     left: 20%;
     box-shadow: 0 0 20px #57206d,
                 0 0 60px #57206d,
@@ -430,32 +427,32 @@ ul {
 }
 
 .planet1::before {
-    width: 45em;
-    height: 45em;
+    width: 55rem;
+    height: 55rem;
     box-shadow: 1px 1px 1px 1px var(--inset1-color),
                 inset 30px 30px 30px 10px var(--inset1-color),
                 inset 100px 30px 100px 10px var(--inset1-color);
 }
 
 .planet2::before {
-    width: 45em;
-    height: 45em;
+    width: 55rem;
+    height: 55rem;
     box-shadow: 1px 1px 1px 1px var(--inset2-color),
                 inset -100px -100px 60px 10px var(--inset2-color),
                 inset -400px -100px 120px 10px var(--inset2-color);
 }
 
 .planet3::before {
-    width: 35em;
-    height: 35em;
+    width: 45rem;
+    height: 45rem;
     box-shadow: 1px 1px 1px 1px var(--inset3-color),
                 inset -30px -10px 50px 10px var(--inset3-color),
                 inset -80px -10px 100px 10px var(--inset3-color);
 }
 
 .black-hole::before {
-    width: 60em;
-    height: 60em;
+    width: 70rem;
+    height: 70rem;
     box-shadow: 1px 1px 1px 1px #57206d,
                 inset -30px -10px 50px 10px #57206d,
                 inset -80px -10px 100px 10px #57206d;
@@ -473,8 +470,8 @@ ul {
 
 .name.hidden {
     font-size: var(--h1-font-size);
-    top: 15%;
-    left: 20%;
+    top: 21%;
+    left: 30%;
     opacity: 0;
     transform: translateX(-50%);
     transition: 0.5s ease;
@@ -487,8 +484,8 @@ ul {
 
 .portfolio.hidden {
     font-size: var(--h2-font-size);
-    top: 35%;
-    left: 55%;
+    top: 37%;
+    left: 45%;
     opacity: 0;
     transform: translateX(50%);
     transition: 0.5s ease;
@@ -518,7 +515,7 @@ ul {
     font-size: var(--h4-font-size);
     color: var(--cursor-color);
     top: 42%;
-    left: 45%;
+    left: 43%;
     opacity: 0;
     transform: translateX(50%);
     transition: 0.5s 0.4s ease;
@@ -532,7 +529,7 @@ ul {
 /* About Section */
 .who-wrapper.hidden {
     position: absolute;
-    left: -40%;
+    right: 95%;
     top: 35%;
     width: 800px;
     overflow: hidden;
@@ -571,8 +568,8 @@ ul {
 
 .about-wrapper.hidden {
     position: absolute;
-    left: -71%;
-    top: 55%;
+    right: 95%;
+    top: 45%;
     width: 1200px;
     overflow: hidden;
     opacity: 0;
@@ -612,7 +609,7 @@ ul {
 .project-title.hidden {
     position: absolute;
     top: 10%;
-    left: -18%;
+    right: 90%;
     font-size: var(--h2-font-size);
     color:  var(--primary-color);
     opacity: 0;
@@ -627,13 +624,13 @@ ul {
 }
 
 .wrapper.hidden {
-    top: 20%;
+    top: 30%;
     left: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px 35px;
-    max-width: 1000px;
+    max-width: 1200px;
     width: 100%;
     background: var(--secondary-color);
     position: absolute;
@@ -752,7 +749,7 @@ ul {
 /* Contact Section */
 .contact-title.hidden {
     position: absolute;
-    top: 15%;
+    top: 25%;
     color: var(--cursor-color);
     font-size: var(--h1-font-size);
     opacity: 0;
@@ -770,7 +767,7 @@ ul {
     display: flex;
     z-index: 5;
     top: 65%;
-    left: 32%;
+    left: 35%;
     font-size: 2em;
     align-items: center;
     justify-content: center;
@@ -792,7 +789,7 @@ ul {
 .gmail.hidden {
     position: absolute;
     top: 60%;
-    left: 41%;
+    left: 43%;
     text-decoration: none;
     color: var(--cursor-color);
     font-size: var(--h3-font-size);
